@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Little Universe ✨ | A Dreamy Sanctuary</title>
+  <meta name="description" content="A dreamy, interactive personal sanctuary with pastel gradients, floating stars, mood tracker, cosmic quests, and lo-fi melodies." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Interactive Stardust & Nebula Canvas -->
+  <canvas id="star-canvas"></canvas>
+  <div class="nebula-glow nebula-1"></div>
+  <div class="nebula-glow nebula-2"></div>
+  <div class="nebula-glow nebula-3"></div>
+
+  <!-- Cursor Particle Glow -->
+  <div id="stardust-cursor" class="stardust-cursor"></div>
+
+  <!-- Navigation Bar -->
+  <header class="universe-header">
+    <nav class="nav-container">
+      <a href="#welcome" class="brand-logo">
+        <span class="planet-icon">🪐</span>
+        <span class="brand-text">My Little <span class="gradient-text">Universe</span></span>
+      </a>
+
+      <div class="nav-links-wrapper" id="navLinks">
+        <ul class="nav-links">
+          <li><a href="#welcome" class="nav-link active"><span class="nav-icon">✨</span> Welcome</a></li>
+          <li><a href="#about" class="nav-link"><span class="nav-icon">🔭</span> Hobbies & Goals</a></li>
+          <li><a href="#mood" class="nav-link"><span class="nav-icon">🌸</span> Daily Mood</a></li>
+          <li><a href="#quests" class="nav-link"><span class="nav-icon">⭐</span> Cosmic Quests</a></li>
+          <li><a href="#music" class="nav-link"><span class="nav-icon">🎵</span> Lo-Fi Lounge</a></li>
+          <li><a href="#wishing-well" class="nav-link"><span class="nav-icon">🌠</span> Wishing Well</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Audio FX Toggle -->
+        <button id="sfxToggle" class="icon-btn" title="Toggle Cosmic Sound FX" aria-label="Toggle Sound Effects">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span class="sfx-dot"></span>
+        </button>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button id="themeToggle" class="theme-toggle-btn" title="Switch between Starlight Night and Pastel Daydream" aria-label="Toggle Theme">
+          <div class="toggle-track">
+            <div class="toggle-thumb">
+              <span class="theme-icon moon-icon">🌙</span>
+              <span class="theme-icon sun-icon">☀️</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="universe-main">
+    
+    <!-- SECTION 1: PERSONALIZED WELCOME SCREEN -->
+    <section id="welcome" class="section welcome-section">
+      <div class="container welcome-container">
+        <div class="welcome-badge">
+          <span class="pulsing-star">✨</span>
+          <span id="timeGreeting">Welcome Stargazer</span>
+          <span class="cosmic-time-badge" id="liveClock">00:00:00</span>
+        </div>
+
+        <div class="welcome-grid">
+          <div class="welcome-content">
+            <h1 class="welcome-title">
+              Hello, I'm <span class="universe-owner gradient-text" id="universeOwner">Nova</span>
+              <button class="edit-name-btn" id="editNameBtn" title="Customize Your Stargazer Name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+              </button>
+            </h1>
+            
+            <p class="welcome-subtitle">
+              Welcome to <span class="highlight-text">My Little Universe</span> — a peaceful sanctuary of pastel dreams, creative orbits, mindful moments, and celestial soundscapes. Take off your space boots and stay a while.
+            </p>
+
+            <div class="welcome-tags">
+              <span class="cosmic-tag"><span class="tag-emoji">🌌</span> Dreamer & Explorer</span>
+              <span class="cosmic-tag"><span class="tag-emoji">🍵</span> Earl Grey Tea Enthusiast</span>
+              <span class="cosmic-tag"><span class="tag-emoji">🎧</span> Lo-Fi Collector</span>
+              <span class="cosmic-tag"><span class="tag-emoji">💻</span> Creative Craftsman</span>
+            </div>
+
+            <div class="welcome-actions">
+              <a href="#mood" class="btn btn-primary cosmic-glow-btn">
+                <span>🌸 Log Today's Orbit</span>
+                <div class="btn-stars"></div>
+              </a>
+              <a href="#music" class="btn btn-secondary glass-btn">
+                <span>🎵 Play Cozy Melodies</span>
+              </a>
+              <button id="starWishBtn" class="btn btn-outline">
+                <span>🌠 Make a Cosmic Wish</span>
+              </button>
+            </div>
+
+            <!-- Live Cosmic Status Card -->
+            <div class="cosmic-status-card glass-panel">
+              <div class="status-item">
+                <span class="status-indicator online"></span>
+                <div class="status-text">
+                  <span class="status-label">Current Orbit</span>
+                  <span class="status-value" id="currentOrbitStatus">Crafting cozy digital worlds 🪐</span>
+                </div>
+              </div>
+              <div class="status-divider"></div>
+              <div class="status-item">
+                <span class="status-icon">🌕</span>
+                <div class="status-text">
+                  <span class="status-label">Moon Phase</span>
+                  <span class="status-value" id="moonPhaseText">Waxing Gibbous</span>
+                </div>
+              </div>
+              <div class="status-divider"></div>
+              <div class="status-item">
+                <span class="status-icon">✨</span>
+                <div class="status-text">
+                  <span class="status-label">Today's Vibe</span>
+                  <span class="status-value" id="todayHeroVibe">Serene & Inspired</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Floating Avatar Artwork -->
+          <div class="welcome-visual">
+            <div class="avatar-orbit-system">
+              <div class="orbit-ring ring-1"></div>
+              <div class="orbit-ring ring-2"></div>
+              <div class="orbit-ring ring-3"></div>
+              
+              <div class="floating-planet planet-mini-1">🌸</div>
+              <div class="floating-planet planet-mini-2">⭐</div>
+              <div class="floating-planet planet-mini-3">🪐</div>
+              <div class="floating-planet planet-mini-4">🌙</div>
+
+              <div class="avatar-capsule">
+                <div class="avatar-glow"></div>
+                <div class="avatar-inner">
+                  <div class="avatar-art">
+                    <!-- Cute Cosmic Explorer SVG Avatar -->
+                    <svg viewBox="0 0 200 200" class="astronaut-avatar" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="astroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#fed7aa"/>
+                          <stop offset="50%" stop-color="#f472b6"/>
+                          <stop offset="100%" stop-color="#c084fc"/>
+                        </linearGradient>
+                        <linearGradient id="visorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#38bdf8"/>
+                          <stop offset="50%" stop-color="#818cf8"/>
+                          <stop offset="100%" stop-color="#c084fc"/>
+                        </linearGradient>
+                        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#ffffff"/>
+                          <stop offset="100%" stop-color="#e2e8f0"/>
+                        </linearGradient>
+                      </defs>
+                      <!-- Stars in background -->
+                      <circle cx="35" cy="40" r="2" fill="#fef08a" opacity="0.8"/>
+                      <circle cx="170" cy="50" r="2.5" fill="#fef08a" opacity="0.9"/>
+                      <circle cx="160" cy="140" r="1.5" fill="#fbcfe8" opacity="0.7"/>
+                      <circle cx="30" cy="130" r="2" fill="#bae6fd" opacity="0.8"/>
+                      <!-- Body -->
+                      <path d="M 60 185 C 60 145, 140 145, 140 185 Z" fill="url(#bodyGrad)"/>
+                      <!-- Backpack -->
+                      <rect x="52" y="80" width="96" height="70" rx="20" fill="#cbd5e1" opacity="0.6"/>
+                      <!-- Helmet -->
+                      <circle cx="100" cy="95" r="54" fill="url(#astroGrad)"/>
+                      <circle cx="100" cy="95" r="50" fill="#ffffff" opacity="0.95"/>
+                      <!-- Visor -->
+                      <ellipse cx="100" cy="95" rx="38" ry="30" fill="url(#visorGrad)"/>
+                      <!-- Visor Reflection -->
+                      <ellipse cx="88" cy="86" rx="14" ry="7" transform="rotate(-20 88 86)" fill="#ffffff" opacity="0.65"/>
+                      <circle cx="118" cy="105" r="3" fill="#ffffff" opacity="0.4"/>
+                      <!-- Cute Cat/Bear Ears on Helmet -->
+                      <path d="M 64 56 Q 72 32 86 48 Z" fill="url(#astroGrad)"/>
+                      <path d="M 136 56 Q 128 32 114 48 Z" fill="url(#astroGrad)"/>
+                      <!-- Blushing cheeks in visor -->
+                      <circle cx="78" cy="102" r="5" fill="#f43f5e" opacity="0.35"/>
+                      <circle cx="122" cy="102" r="5" fill="#f43f5e" opacity="0.35"/>
+                      <!-- Happy eyes -->
+                      <path d="M 82 94 Q 88 88 94 94" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none"/>
+                      <path d="M 106 94 Q 112 88 118 94" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none"/>
+                      <!-- Antenna -->
+                      <line x1="100" y1="41" x2="100" y2="22" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+                      <circle cx="100" cy="18" r="7" fill="#f472b6"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Quote Card -->
+              <div class="floating-quote-bubble glass-panel">
+                <span class="quote-star">✨</span>
+                <p id="cosmicQuoteText">"Somewhere, something incredible is waiting to be known."</p>
+                <button id="nextQuoteBtn" class="quote-refresh-btn" title="Get another cosmic quote">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: HOBBIES, GOALS & INTERESTS -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">Constellation of Me</span>
+          <h2 class="section-title">Hobbies, Goals & Cosmic Interests</h2>
+          <p class="section-subtitle">A collection of things that make my heart light up like a supernova</p>
+        </div>
+
+        <!-- Custom Tab Navigation -->
+        <div class="tab-pills-container">
+          <button class="tab-pill active" data-tab="hobbies">
+            <span class="pill-icon">🎨</span> Creative Hobbies
+          </button>
+          <button class="tab-pill" data-tab="goals">
+            <span class="pill-icon">🎯</span> Stellar Goals (2026)
+          </button>
+          <button class="tab-pill" data-tab="interests">
+            <span class="pill-icon">🌌</span> Cosmic Curiosities
+          </button>
+        </div>
+
+        <!-- Tab 1: Hobbies Content -->
+        <div class="tab-pane active" id="tab-hobbies">
+          <div class="cards-grid">
+            
+            <div class="universe-card hobby-card glass-panel" data-tilt>
+              <div class="card-glow-layer"></div>
+              <div class="card-header-icon">
+                <span class="hobby-emoji">🔭</span>
+                <span class="vibe-badge">Stargazing</span>
+              </div>
+              <h3 class="card-title">Astrophotography & Skywatching</h3>
+              <p class="card-description">
+                Tracking meteor showers, sketching deep-sky nebulae through telescopes, and chasing quiet nights far away from city light pollution.
+              </p>
+              <div class="card-tags">
+                <span class="mini-tag">#NightSky</span>
+                <span class="mini-tag">#MessierObjects</span>
+                <span class="mini-tag">#Orion</span>
+              </div>
+              <div class="card-footer">
+                <button class="reaction-btn" data-reactions="24">
+                  <span class="heart-icon">💖</span> <span class="reaction-count">24</span> Vibes
+                </button>
+                <span class="skill-level">Cosmic Explorer</span>
+              </div>
+            </div>
+
+            <div class="universe-card hobby-card glass-panel" data-tilt>
+              <div class="card-glow-layer"></div>
+              <div class="card-header-icon">
+                <span class="hobby-emoji">🎹</span>
+                <span class="vibe-badge">Soundscapes</span>
+              </div>
+              <h3 class="card-title">Lo-Fi Beats & Synth Synthesis</h3>
+              <p class="card-description">
+                Designing dreamy Rhodes chords, rain-drenched tape loops, sub-bass grooves, and ambient space pads that lull anxious minds into quiet focus.
+              </p>
+              <div class="card-tags">
+                <span class="mini-tag">#AnalogWarmth</span>
+                <span class="mini-tag">#TapeCassette</span>
+                <span class="mini-tag">#Binaural</span>
+              </div>
+              <div class="card-footer">
+                <button class="reaction-btn" data-reactions="42">
+                  <span class="heart-icon">💖</span> <span class="reaction-count">42</span> Vibes
+                </button>
+                <span class="skill-level">Nightly Jammer</span>
+              </div>
+            </div>
+
+            <div class="universe-card hobby-card glass-panel" data-tilt>
+              <div class="card-glow-layer"></div>
+              <div class="card-header-icon">
+                <span class="hobby-emoji">💻</span>
+                <span class="vibe-badge">Crafting</span>
+              </div>
+              <h3 class="card-title">Creative Coding & Web Art</h3>
+              <p class="card-description">
+                Transforming lines of code into poetry, particle physics simulations, whimsical micro-interactions, and vibrant pastel canvases.
+              </p>
+              <div class="card-tags">
+                <span class="mini-tag">#CanvasWebGL</span>
+                <span class="mini-tag">#CSSMagic</span>
+                <span class="mini-tag">#Interactive</span>
+              </div>
+              <div class="card-footer">
+                <button class="reaction-btn" data-reactions="57">
+                  <span class="heart-icon">💖</span> <span class="reaction-count">57</span> Vibes
+                </button>
+                <span class="skill-level">Code Alchemist</span>
+              </div>
+            </div>
+
+            <div class="universe-card hobby-card glass-panel" data-tilt>
+              <div class="card-glow-layer"></div>
+              <div class="card-header-icon">
+                <span class="hobby-emoji">🍵</span>
+                <span class="vibe-badge">Rituals</span>
+              </div>
+              <h3 class="card-title">Artisanal Tea Brewing</h3>
+              <p class="card-description">
+                Steeping floral oolongs, matcha whisking, dried lavender infusions, and collecting ceramic handcrafted mugs from local pottery artisans.
+              </p>
+              <div class="card-tags">
+                <span class="mini-tag">#MatchaLove</span>
+                <span class="mini-tag">#EarlGrey</span>
+                <span class="mini-tag">#Mindfulness</span>
+              </div>
+              <div class="card-footer">
+                <button class="reaction-btn" data-reactions="31">
+                  <span class="heart-icon">💖</span> <span class="reaction-count">31</span> Vibes
+                </button>
+                <span class="skill-level">Tea Sommelier</span>
+              </div>
+            </div>
+
+            <div class="universe-card hobby-card glass-panel" data-tilt>
+              <div class="card-glow-layer"></div>
+              <div class="card-header-icon">
+                <span class="hobby-emoji">🎮</span>
+                <span class="vibe-badge">Gaming</span>
+              </div>
+              <h3 class="card-title">Cozy Games & Pixel Worlds</h3>
+              <p class="card-description">
+                Curating quiet farms in Stardew Valley, exploring interstellar anomalies in Outer Wilds, and chilling out in atmospheric indie adventures.
+              </p>
+              <div class="card-tags">
+                <span class="mini-tag">#OuterWilds</span>
+                <span class="mini-tag">#IndieGames</span>
+                <span class="mini-tag">#CozyVibes</span>
+              </div>
+              <div class="card-footer">
+                <button class="reaction-btn" data-reactions="68">
+                  <span class="heart-icon">💖</span> <span class="reaction-count">68</span> Vibes
+                </button>
+                <span class="skill-level">Quiet Gamer</span>
+              </div>
+            </div>
+
+            <div class="universe-card hobby-card glass-panel" data-tilt>
+              <div class="card-glow-layer"></div>
+              <div class="card-header-icon">
+                <span class="hobby-emoji">🌱</span>
+                <span class="vibe-badge">Growth</span>
+              </div>
+              <h3 class="card-title">Bonsai & Terrarium Tending</h3>
+              <p class="card-description">
+                Cultivating tiny self-contained moss biospheres in vintage glassware and caring for miniature juniper and ficus bonsai trees.
+              </p>
+              <div class="card-tags">
+                <span class="mini-tag">#Terrarium</span>
+                <span class="mini-tag">#GreenThumb</span>
+                <span class="mini-tag">#Bonsai</span>
+              </div>
+              <div class="card-footer">
+                <button class="reaction-btn" data-reactions="19">
+                  <span class="heart-icon">💖</span> <span class="reaction-count">19</span> Vibes
+                </button>
+                <span class="skill-level">Forest Keeper</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 2: Goals Content -->
+        <div class="tab-pane" id="tab-goals">
+          <div class="goals-container">
+            <div class="goals-summary glass-panel">
+              <div class="goals-stat">
+                <span class="stat-number gradient-text" id="goalsCompletedCount">3</span>
+                <span class="stat-title">Quests Fulfilled</span>
+              </div>
+              <div class="goals-stat">
+                <span class="stat-number gradient-text" id="goalsTotalCount">6</span>
+                <span class="stat-title">Active Trajectories</span>
+              </div>
+              <div class="goals-stat">
+                <span class="stat-number gradient-text" id="overallGoalsProgress">72%</span>
+                <span class="stat-title">Starlight Orbit Progress</span>
+              </div>
+            </div>
+
+            <div class="goals-list">
+              
+              <div class="goal-item glass-panel">
+                <div class="goal-header">
+                  <div class="goal-title-wrap">
+                    <span class="goal-icon">🚀</span>
+                    <div>
+                      <h4 class="goal-name">Build & Ship 5 Whimsical Web Apps</h4>
+                      <span class="goal-category">Creative Engineering</span>
+                    </div>
+                  </div>
+                  <span class="goal-percentage">80%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 80%;"></div>
+                </div>
+                <div class="goal-milestones">
+                  <span class="milestone done">✨ Universe Website</span>
+                  <span class="milestone done">✨ Lo-Fi Station</span>
+                  <span class="milestone done">✨ Particle Toy</span>
+                  <span class="milestone done">✨ Starlight Notes</span>
+                  <span class="milestone">🪐 Final Showcase</span>
+                </div>
+              </div>
+
+              <div class="goal-item glass-panel">
+                <div class="goal-header">
+                  <div class="goal-title-wrap">
+                    <span class="goal-icon">📚</span>
+                    <div>
+                      <h4 class="goal-name">Read 24 Mind-Expanding Books</h4>
+                      <span class="goal-category">Personal Enlightenment</span>
+                    </div>
+                  </div>
+                  <span class="goal-percentage">75%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 75%;"></div>
+                </div>
+                <div class="goal-milestones">
+                  <span class="milestone done">📖 Cosmos (Sagan)</span>
+                  <span class="milestone done">📖 Piranesi</span>
+                  <span class="milestone done">📖 Dune</span>
+                  <span class="milestone">📖 18 of 24 Completed</span>
+                </div>
+              </div>
+
+              <div class="goal-item glass-panel">
+                <div class="goal-header">
+                  <div class="goal-title-wrap">
+                    <span class="goal-icon">🎵</span>
+                    <div>
+                      <h4 class="goal-name">Release a 6-Track Ambient EP ("Starlit Reverie")</h4>
+                      <span class="goal-category">Music Production</span>
+                    </div>
+                  </div>
+                  <span class="goal-percentage">65%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 65%;"></div>
+                </div>
+                <div class="goal-milestones">
+                  <span class="milestone done">🎹 4 Tracks Mastered</span>
+                  <span class="milestone">🎨 Album Art Design</span>
+                  <span class="milestone">💿 Cassette Packaging</span>
+                </div>
+              </div>
+
+              <div class="goal-item glass-panel">
+                <div class="goal-header">
+                  <div class="goal-title-wrap">
+                    <span class="goal-icon">🧘</span>
+                    <div>
+                      <h4 class="goal-name">Daily Mindfulness & 100 Days of Stargazing</h4>
+                      <span class="goal-category">Mental Wellbeing</span>
+                    </div>
+                  </div>
+                  <span class="goal-percentage">88%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" style="width: 88%;"></div>
+                </div>
+                <div class="goal-milestones">
+                  <span class="milestone done">🌱 88 Day Streak</span>
+                  <span class="milestone">✨ 12 Days to Century</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Interests Content -->
+        <div class="tab-pane" id="tab-interests">
+          <div class="interests-cloud-container glass-panel">
+            <h3 class="interests-heading">Click on any cosmic curiosity to reveal its secret notes! ✨</h3>
+            <div class="floating-chips-cloud" id="interestsCloud">
+              <button class="interest-chip" data-info="Studio Ghibli films taught me that the gentlest moments in life are the ones with the deepest magic. My favorites are Whisper of the Heart and Kiki's Delivery Service.">
+                <span>🍃 Studio Ghibli</span>
+              </button>
+              <button class="interest-chip" data-info="Deep-space astrophysics: black hole event horizons, neutron stars, gravitational wave ripples, and the endless poetry of Carl Sagan.">
+                <span>🌌 Astrophysics</span>
+              </button>
+              <button class="interest-chip" data-info="Mechanical keyboards: tuned with hand-lubed linear switches (Boba LT), custom frosted lavender keycaps, and a deep creamy sound profile.">
+                <span>⌨️ Custom Keyboards</span>
+              </button>
+              <button class="interest-chip" data-info="Ceremonial grade Uji Matcha whisked with oat milk and a drizzle of wildflower honey — the perfect morning fuel.">
+                <span>🍵 Japanese Matcha</span>
+              </button>
+              <button class="interest-chip" data-info="Synthwave & Chillwave: dreamy nostalgic 80s arpeggios, neon sunsets, vintage tape delay, and warm chorus guitars.">
+                <span>🌆 Retro Synthwave</span>
+              </button>
+              <button class="interest-chip" data-info="Cozy Pixel Art: 16-bit isometric rooms, raining cityscapes outside a warm window, and soothing aesthetic color palettes.">
+                <span>👾 Pixel Art Aesthetics</span>
+              </button>
+              <button class="interest-chip" data-info="Sci-Fi Literature: Philip K. Dick, Ursula K. Le Guin, Ted Chiang, and Isaac Asimov exploring consciousness and distant worlds.">
+                <span>🚀 Philosophical Sci-Fi</span>
+              </button>
+              <button class="interest-chip" data-info="Stationery & Fountain Pens: Tomoe River paper notebooks, shimmer chameleon inks, and writing letters by candlelight.">
+                <span>🖋️ Fountain Pens</span>
+              </button>
+              <button class="interest-chip" data-info="Nordic Architecture & Minimalism: warm birch wood, oversized picture windows, natural light, and hygge living.">
+                <span>🏡 Scandinavian Design</span>
+              </button>
+              <button class="interest-chip" data-info="Generative Art: using mathematical noise algorithms (Perlin & Simplex) to simulate natural flow fields and galaxy spirals.">
+                <span>🌀 Generative Algorithms</span>
+              </button>
+            </div>
+
+            <!-- Interactive Interest Popover Box -->
+            <div class="interest-details-box" id="interestDetailsBox">
+              <div class="details-icon">✨</div>
+              <div class="details-text">
+                <h4 id="interestTitle">Click any curiosity above!</h4>
+                <p id="interestDescription">Explore what sparks wonder in this little universe.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE DAILY MOOD TRACKER -->
+    <section id="mood" class="section mood-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">Celestial Heartbeat</span>
+          <h2 class="section-title">Interactive Daily Mood Tracker</h2>
+          <p class="section-subtitle">How does your universe feel today? Record your vibe and watch it bloom into a glowing star.</p>
+        </div>
+
+        <div class="mood-tracker-grid">
+          
+          <!-- Mood Logging Card -->
+          <div class="mood-logger-card glass-panel">
+            <h3 class="card-subtitle">Select Today's Constellation Vibe</h3>
+            
+            <div class="mood-selector" id="moodSelector">
+              <button class="mood-option active" data-mood="radiant" data-name="Radiant & Inspired" data-color="#fbbf24" data-emoji="🌟">
+                <span class="mood-emoji-wrap">🌟</span>
+                <span class="mood-label">Radiant</span>
+                <span class="mood-sub">Bright & energetic</span>
+              </button>
+
+              <button class="mood-option" data-mood="serene" data-name="Cosmic Zen" data-color="#c084fc" data-emoji="🌸">
+                <span class="mood-emoji-wrap">🌸</span>
+                <span class="mood-label">Serene</span>
+                <span class="mood-sub">Calm & peaceful</span>
+              </button>
+
+              <button class="mood-option" data-mood="dreamy" data-name="Nebula Dreamer" data-color="#38bdf8" data-emoji="☁️">
+                <span class="mood-emoji-wrap">☁️</span>
+                <span class="mood-label">Dreamy</span>
+                <span class="mood-sub">Lost in thought</span>
+              </button>
+
+              <button class="mood-option" data-mood="rainy" data-name="Stardust Rain" data-color="#818cf8" data-emoji="🌧️">
+                <span class="mood-emoji-wrap">🌧️</span>
+                <span class="mood-label">Quiet</span>
+                <span class="mood-sub">Tired or gentle</span>
+              </button>
+
+              <button class="mood-option" data-mood="supernova" data-name="Supernova Glow" data-color="#f472b6" data-emoji="⚡">
+                <span class="mood-emoji-wrap">⚡</span>
+                <span class="mood-label">Supernova</span>
+                <span class="mood-sub">Full speed orbit</span>
+              </button>
+            </div>
+
+            <!-- Energy Meter Slider -->
+            <div class="energy-slider-group">
+              <div class="energy-labels">
+                <span class="energy-title">Cosmic Energy Level</span>
+                <span class="energy-value-pill" id="energyValueText">8 / 10 ⚡ High Orbit</span>
+              </div>
+              <input type="range" id="energySlider" min="1" max="10" value="8" class="cosmic-range-slider" />
+              <div class="slider-ticks">
+                <span>Dormant 🌙</span>
+                <span>Balanced ⚖️</span>
+                <span>Hyperdrive 🚀</span>
+              </div>
+            </div>
+
+            <!-- Mood Reflection Note -->
+            <div class="mood-note-group">
+              <label for="moodNoteInput" class="input-label">Starlight Notes & Gratitude</label>
+              <textarea id="moodNoteInput" class="cosmic-textarea" rows="3" placeholder="What brought wonder, peace, or warmth to your orbit today?"></textarea>
+            </div>
+
+            <!-- Mood Tags -->
+            <div class="mood-tags-selector">
+              <span class="input-label">Orbit Focus Tags:</span>
+              <div class="tag-chips-wrap" id="moodTagChips">
+                <button type="button" class="tag-chip active">#CreativeCoding</button>
+                <button type="button" class="tag-chip">#TeaTime</button>
+                <button type="button" class="tag-chip">#MusicVibes</button>
+                <button type="button" class="tag-chip">#DeepFocus</button>
+                <button type="button" class="tag-chip">#SelfCare</button>
+                <button type="button" class="tag-chip">#WalkUnderStars</button>
+              </div>
+            </div>
+
+            <button id="saveMoodBtn" class="btn btn-primary cosmic-glow-btn full-width">
+              <span>✨ Log Orbit to the Cosmos</span>
+            </button>
+          </div>
+
+          <!-- Celestial Mood Jar & History Canvas -->
+          <div class="mood-analytics-card glass-panel">
+            <div class="analytics-header">
+              <h3 class="card-subtitle">Your Celestial Mood Jar</h3>
+              <span class="entry-count-badge" id="moodEntriesCount">7 entries</span>
+            </div>
+            
+            <p class="analytics-description">
+              Every logged vibe becomes a glowing celestial marble inside your celestial vessel. Watch your constellation grow!
+            </p>
+
+            <!-- Visual Mood Jar Glass Container -->
+            <div class="mood-jar-wrapper">
+              <div class="mood-jar-glass">
+                <div class="jar-cork"></div>
+                <div class="jar-neck"></div>
+                <div class="jar-body" id="jarMarblesContainer">
+                  <!-- Marbles will be populated dynamically -->
+                </div>
+                <div class="jar-shine"></div>
+              </div>
+
+              <!-- Live Mood Quick Stats -->
+              <div class="mood-stats-col">
+                <div class="mini-stat-card">
+                  <span class="mini-stat-label">Dominant Orbit</span>
+                  <span class="mini-stat-val" id="dominantMoodText">🌟 Radiant</span>
+                </div>
+                <div class="mini-stat-card">
+                  <span class="mini-stat-label">Average Energy</span>
+                  <span class="mini-stat-val" id="avgEnergyText">8.2 / 10</span>
+                </div>
+                <div class="mini-stat-card">
+                  <span class="mini-stat-label">Stargaze Streak</span>
+                  <span class="mini-stat-val" id="moodStreakText">🔥 7 Days</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Mood History Logs -->
+            <div class="mood-history-wrap">
+              <h4 class="history-title">Recent Celestial Logs</h4>
+              <div class="mood-history-list" id="moodHistoryList">
+                <!-- Dynamically populated mood logs -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TO-DO LIST WITH CUTE ANIMATIONS (COSMIC QUESTS) -->
+    <section id="quests" class="section quests-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">Starlight Manifestations</span>
+          <h2 class="section-title">Cosmic Quests & To-Do List</h2>
+          <p class="section-subtitle">Turn your daily goals into twinkling star quests. Check them off to ignite celebratory stardust!</p>
+        </div>
+
+        <div class="quests-wrapper glass-panel">
+          
+          <!-- Quest Level & Progress Bar Header -->
+          <div class="quest-progress-header">
+            <div class="quest-level-info">
+              <div class="level-badge">
+                <span class="level-icon">🚀</span>
+                <div>
+                  <span class="level-subtitle">Cosmic Quest Rank</span>
+                  <h3 class="level-title" id="questRankTitle">Starlight Pathfinder</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="quest-progress-metrics">
+              <div class="metric-text-row">
+                <span class="metric-label">Manifestation Energy</span>
+                <span class="metric-value" id="questsProgressText">3 / 5 Done (60%)</span>
+              </div>
+              <div class="progress-bar-track large">
+                <div class="progress-bar-fill animated-shimmer" id="questProgressBar" style="width: 60%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quest Input Form -->
+          <form id="newQuestForm" class="new-quest-form">
+            <div class="input-row">
+              <div class="quest-input-wrapper">
+                <span class="input-icon">✨</span>
+                <input 
+                  type="text" 
+                  id="questInput" 
+                  class="cosmic-input" 
+                  placeholder="Manifest a new quest... (e.g., Brew lavender tea, master CSS grid)" 
+                  required 
+                  autocomplete="off" 
+                />
+              </div>
+
+              <!-- Category Picker -->
+              <div class="select-wrapper">
+                <select id="questCategory" class="cosmic-select">
+                  <option value="creative">🎨 Creative</option>
+                  <option value="code">💻 Code</option>
+                  <option value="care">🍵 Self-care</option>
+                  <option value="study">📚 Study</option>
+                  <option value="explore">🚀 Life</option>
+                </select>
+              </div>
+
+              <!-- Priority -->
+              <div class="select-wrapper">
+                <select id="questPriority" class="cosmic-select">
+                  <option value="1">⭐ Normal</option>
+                  <option value="2">⭐⭐ High Priority</option>
+                  <option value="3">🌟 Cosmic Urgency</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary add-quest-btn">
+                <span>Manifest ✨</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Quest Filters & Actions Toolbar -->
+          <div class="quest-toolbar">
+            <div class="filter-pills" id="questFilterGroup">
+              <button class="filter-pill active" data-filter="all">All Quests (<span id="countAllQuests">0</span>)</button>
+              <button class="filter-pill" data-filter="active">In Orbit (<span id="countActiveQuests">0</span>)</button>
+              <button class="filter-pill" data-filter="completed">Fulfilled (<span id="countDoneQuests">0</span>)</button>
+            </div>
+
+            <div class="toolbar-actions">
+              <button id="clearCompletedBtn" class="action-text-btn">
+                🧹 Clear Fulfilled
+              </button>
+              <button id="resetSampleQuestsBtn" class="action-text-btn">
+                🔄 Reset Sample Quests
+              </button>
+            </div>
+          </div>
+
+          <!-- Quests List Display -->
+          <div class="quests-list-container">
+            <ul class="quests-list" id="questsList">
+              <!-- Dynamically populated list with cute checkbox animation -->
+            </ul>
+
+            <!-- Empty State -->
+            <div class="empty-quest-state hidden" id="emptyQuestsState">
+              <div class="empty-icon">🌠</div>
+              <h4>All orbits are clear and fulfilled!</h4>
+              <p>Add a new starlight quest above to manifest your next adventure.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: MUSIC-INSPIRED SECTION (COSMIC LO-FI LOUNGE) -->
+    <section id="music" class="section music-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">Celestial Frequencies</span>
+          <h2 class="section-title">Lo-Fi Lounge & Ambient Soundstation</h2>
+          <p class="section-subtitle">Real-time synthesized dreamy lo-fi chords and soothing ambient noise generator to focus, relax, or sleep.</p>
+        </div>
+
+        <div class="music-player-grid">
+          
+          <!-- Lo-Fi Music Player Card -->
+          <div class="player-card glass-panel">
+            <div class="vinyl-showcase">
+              <!-- Animated Vinyl Record -->
+              <div class="vinyl-turntable">
+                <div class="vinyl-disc" id="vinylDisc">
+                  <div class="vinyl-groove groove-1"></div>
+                  <div class="vinyl-groove groove-2"></div>
+                  <div class="vinyl-groove groove-3"></div>
+                  <div class="vinyl-center-label">
+                    <div class="vinyl-art">🪐</div>
+                  </div>
+                </div>
+                <div class="turntable-tonearm" id="toneArm"></div>
+              </div>
+
+              <!-- Track Information -->
+              <div class="track-info-wrap">
+                <div class="live-playing-badge" id="playerStatusBadge">
+                  <span class="pulse-dot"></span> Ready to play
+                </div>
+                <h3 class="track-title" id="currentTrackTitle">Moonlit Nebula</h3>
+                <p class="track-artist" id="currentTrackArtist">Cosmic Ambient & Lo-Fi Synthesizer</p>
+                <span class="track-genre-pill" id="currentTrackMood">Chill Rhodes & Pastel Chords</span>
+              </div>
+            </div>
+
+            <!-- Audio Frequency Visualizer Canvas -->
+            <div class="visualizer-wrapper">
+              <canvas id="visualizerCanvas" width="400" height="60"></canvas>
+            </div>
+
+            <!-- Player Progress Bar -->
+            <div class="player-progress-area">
+              <div class="scrub-time" id="currentTimeText">0:00</div>
+              <div class="progress-track" id="trackProgressTrack">
+                <div class="progress-fill" id="trackProgressFill" style="width: 0%;"></div>
+                <div class="progress-scrubber" id="trackScrubber" style="left: 0%;"></div>
+              </div>
+              <div class="scrub-time" id="totalDurationText">2:45</div>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="player-controls">
+              <button id="shuffleBtn" class="control-btn mini-btn" title="Toggle Loop Mode">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 3 21 3 21 8"></polyline>
+                  <line x1="4" y1="20" x2="21" y2="3"></line>
+                  <polyline points="21 16 21 21 16 21"></polyline>
+                  <line x1="15" y1="15" x2="21" y2="21"></line>
+                  <line x1="4" y1="4" x2="9" y2="9"></line>
+                </svg>
+              </button>
+
+              <button id="prevTrackBtn" class="control-btn" title="Previous Track">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                  <line x1="5" y1="19" x2="5" y2="5"></line>
+                </svg>
+              </button>
+
+              <button id="playPauseBtn" class="control-btn play-main-btn" title="Play / Pause">
+                <svg id="playIconSvg" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <svg id="pauseIconSvg" class="hidden" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+              </button>
+
+              <button id="nextTrackBtn" class="control-btn" title="Next Track">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                  <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+              </button>
+
+              <button id="favoriteTrackBtn" class="control-btn mini-btn" title="Love this melody">
+                <span id="favHeartIcon">🤍</span>
+              </button>
+            </div>
+
+            <!-- Volume Control -->
+            <div class="player-volume-row">
+              <span class="vol-icon">🔉</span>
+              <input type="range" id="masterVolume" min="0" max="1" step="0.01" value="0.7" class="cosmic-range-slider mini" />
+              <span class="vol-icon">🔊</span>
+            </div>
+
+            <!-- Playlist Selector -->
+            <div class="playlist-container">
+              <span class="playlist-header-label">Station Trajectories (Web Audio Synthesized):</span>
+              <div class="playlist-items" id="playlistItems">
+                <!-- Dynamically populated tracks -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Ambient Sound Mixer Card -->
+          <div class="ambient-mixer-card glass-panel">
+            <div class="mixer-header">
+              <h3 class="card-subtitle">Atmospheric Sound Mixer</h3>
+              <span class="mixer-badge">Layer with Melodies 🌌</span>
+            </div>
+            
+            <p class="mixer-desc">
+              Blend real-time procedural nature & cosmic audio textures alongside your music for the ultimate cozy stargazing atmosphere.
+            </p>
+
+            <div class="ambient-channels">
+              
+              <!-- Rain Channel -->
+              <div class="channel-card glass-panel">
+                <div class="channel-top">
+                  <div class="channel-meta">
+                    <span class="channel-icon">🌧️</span>
+                    <div>
+                      <h4 class="channel-name">Gentle Cosmic Rain</h4>
+                      <span class="channel-sub">Warm raindrops on a greenhouse roof</span>
+                    </div>
+                  </div>
+                  <button class="channel-toggle-btn" id="toggleRainBtn" data-channel="rain">Start</button>
+                </div>
+                <div class="channel-volume-wrap">
+                  <span class="vol-min">Quiet</span>
+                  <input type="range" id="volRain" min="0" max="1" step="0.05" value="0.5" class="cosmic-range-slider mini" />
+                  <span class="vol-max">Pouring</span>
+                </div>
+              </div>
+
+              <!-- Deep Space Drone Channel -->
+              <div class="channel-card glass-panel">
+                <div class="channel-top">
+                  <div class="channel-meta">
+                    <span class="channel-icon">🌌</span>
+                    <div>
+                      <h4 class="channel-name">Nebula Binaural Drone</h4>
+                      <span class="channel-sub">432Hz deep resonant cosmic hum</span>
+                    </div>
+                  </div>
+                  <button class="channel-toggle-btn" id="toggleDroneBtn" data-channel="drone">Start</button>
+                </div>
+                <div class="channel-volume-wrap">
+                  <span class="vol-min">Subtle</span>
+                  <input type="range" id="volDrone" min="0" max="1" step="0.05" value="0.4" class="cosmic-range-slider mini" />
+                  <span class="vol-max">Immense</span>
+                </div>
+              </div>
+
+              <!-- Starlight Wind Chimes Channel -->
+              <div class="channel-card glass-panel">
+                <div class="channel-top">
+                  <div class="channel-meta">
+                    <span class="channel-icon">🎐</span>
+                    <div>
+                      <h4 class="channel-name">Stardust Wind Chimes</h4>
+                      <span class="channel-sub">Delicate pentatonic crystalline bells</span>
+                    </div>
+                  </div>
+                  <button class="channel-toggle-btn" id="toggleChimesBtn" data-channel="chimes">Start</button>
+                </div>
+                <div class="channel-volume-wrap">
+                  <span class="vol-min">Breeze</span>
+                  <input type="range" id="volChimes" min="0" max="1" step="0.05" value="0.35" class="cosmic-range-slider mini" />
+                  <span class="vol-max">Lively</span>
+                </div>
+              </div>
+
+              <!-- Vinyl Crackle Channel -->
+              <div class="channel-card glass-panel">
+                <div class="channel-top">
+                  <div class="channel-meta">
+                    <span class="channel-icon">🪵</span>
+                    <div>
+                      <h4 class="channel-name">Warm Vinyl & Hearth</h4>
+                      <span class="channel-sub">Cozy needle crackle and fireplace warmth</span>
+                    </div>
+                  </div>
+                  <button class="channel-toggle-btn" id="toggleVinylBtn" data-channel="vinyl">Start</button>
+                </div>
+                <div class="channel-volume-wrap">
+                  <span class="vol-min">Dust</span>
+                  <input type="range" id="volVinyl" min="0" max="1" step="0.05" value="0.3" class="cosmic-range-slider mini" />
+                  <span class="vol-max">Crackling</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Master Ambient Controls -->
+            <div class="ambient-footer-actions">
+              <button id="allAmbientOnBtn" class="btn btn-secondary glass-btn">
+                <span>✨ Turn On All Ambience</span>
+              </button>
+              <button id="allAmbientOffBtn" class="btn btn-outline">
+                <span>🔇 Silence All Ambience</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: COSMIC WISHING WELL / INTERACTIVE STAR MESSAGES -->
+    <section id="wishing-well" class="section wishing-section">
+      <div class="container text-center">
+        <div class="section-header">
+          <span class="section-pill">Celestial Connection</span>
+          <h2 class="section-title">The Starlight Wishing Well</h2>
+          <p class="section-subtitle">Cast a hopeful wish into the night sky. Each wish transforms into a glowing star you can gaze upon.</p>
+        </div>
+
+        <div class="wishing-container glass-panel">
+          
+          <div class="wishing-input-card">
+            <div class="wish-form">
+              <input type="text" id="visitorWishInput" class="cosmic-input" placeholder="Type a wish, kind hope, or dream to release into the universe..." maxlength="120" />
+              <input type="text" id="visitorWishAuthor" class="cosmic-input short" placeholder="Your name (e.g., Stargazer Maya)" maxlength="30" />
+              <button id="submitWishBtn" class="btn btn-primary cosmic-glow-btn">
+                <span>🌠 Release Star Wish</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Starlit Sky with Clickable Wishes -->
+          <div class="wishing-sky" id="wishingSky">
+            <div class="sky-hint">Hover or click any star below to read a whispered dream ✨</div>
+            <div class="wishes-stars-container" id="wishesStarsContainer">
+              <!-- Floating stars generated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Wish Inspection Modal/Drawer -->
+          <div class="wish-inspection-box" id="wishInspectionBox">
+            <span class="wish-quote-symbol">“</span>
+            <p id="inspectWishContent" class="inspect-wish-text">Select any star above to read its cosmic light.</p>
+            <div class="inspect-wish-meta">
+              <span id="inspectWishAuthor" class="inspect-author">— A Fellow Dreamer</span>
+              <span id="inspectWishDate" class="inspect-date">Just now</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- UNIVERSE FOOTER -->
+  <footer class="universe-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="planet-icon">🪐</span>
+          <span class="brand-text">My Little <span class="gradient-text">Universe</span></span>
+        </div>
+        <p class="footer-tagline">
+          Crafted with stardust, pastel dreams, gentle algorithms, and unconditional hope.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Celestial Coordinates</h4>
+        <div class="footer-social-links">
+          <a href="#" class="social-link" title="GitHub Universe"><span class="social-emoji">🐙</span> Code Orbit</a>
+          <a href="#" class="social-link" title="Spotify Lo-Fi"><span class="social-emoji">🎧</span> Playlist</a>
+          <a href="#" class="social-link" title="Cosmic Mail"><span class="social-emoji">💌</span> Message Me</a>
+          <a href="#" class="social-link" title="Star Log"><span class="social-emoji">📖</span> Journal</a>
+        </div>
+      </div>
+
+      <div class="footer-back-to-top">
+        <a href="#welcome" class="back-to-top-btn" title="Glide back to the stars">
+          <span class="rocket-icon">🚀</span>
+          <span class="btn-text">Return to Top</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2026 My Little Universe. May your nights be peaceful and your dreams boundless. ✨</p>
+    </div>
+  </footer>
+
+  <!-- CUSTOMIZE NAME MODAL -->
+  <div class="modal-backdrop" id="nameModal">
+    <div class="modal-card glass-panel">
+      <button class="modal-close-btn" id="closeNameModalBtn">&times;</button>
+      <div class="modal-header">
+        <span class="modal-emoji">🪐</span>
+        <h3 class="modal-title">Customize Stargazer Name</h3>
+        <p class="modal-desc">What shall the cosmos call you?</p>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="customNameInput" class="cosmic-input" placeholder="Enter your name..." maxlength="25" />
+      </div>
+      <div class="modal-actions">
+        <button id="saveNameBtn" class="btn btn-primary cosmic-glow-btn">
+          <span>Save to Universe ✨</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CELEBRATORY CONFETTI / STARDUST OVERLAY -->
+  <div id="stardustCelebration" class="stardust-celebration"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
